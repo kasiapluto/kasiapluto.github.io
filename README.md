@@ -13,7 +13,7 @@
     
        <center>
     
-       <a href="https://kasiapluto.neocities.org/art">painting</a>.
+       <a href="kasiapluto.github.io/painting">painting</a>.
          <a href="https://kasiapluto.neocities.org/paper">painting on paper</a>.
    <a href="https://kasiapluto.neocities.org/3d">digital</a>.
           <a href="https://kasiapluto.neocities.org/archive">archive</a>. 
