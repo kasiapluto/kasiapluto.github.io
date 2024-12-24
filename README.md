@@ -8,7 +8,6 @@
          This makes it easier to make new pages for your site. -->
     <link href="/style.css" rel="stylesheet" type="text/css" media="all">
       <center>
-  </head>
     <h2>Kasia Pluto</h2>
     
        <center>
@@ -21,6 +20,6 @@
      <a href="https://www.instagram.com/kasiaapj/">instagram</a>.
    
   
-    <img src="https://i.imgur.com/0YVW82A.png">
+    <img src="IMG_2875.jpg">
 
 
