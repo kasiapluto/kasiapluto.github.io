@@ -11,6 +11,7 @@
     <h2>Kasia Pluto</h2>
     
        <center>
+       <a href="statement.html">artist statement</a>
      <a href="https://www.instagram.com/kasiaapj/">instagram</a>.
    
   
