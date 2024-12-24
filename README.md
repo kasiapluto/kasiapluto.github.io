@@ -1,5 +1,5 @@
 <html>
-<body style="background-color:aquamarine;">
+<body style="background-color:white;">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artist Kasia Pluto</title>
@@ -11,12 +11,6 @@
     <h2>Kasia Pluto</h2>
     
        <center>
-    
-       <a href="kasiapluto.github.io/painting">painting</a>.
-         <a href="https://kasiapluto.neocities.org/paper">painting on paper</a>.
-   <a href="https://kasiapluto.neocities.org/3d">digital</a>.
-          <a href="https://kasiapluto.neocities.org/archive">archive</a>. 
-    <a href="https://kasiapluto.neocities.org/contact">about/contact</a>.
      <a href="https://www.instagram.com/kasiaapj/">instagram</a>.
    
   
