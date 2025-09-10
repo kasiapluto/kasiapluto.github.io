@@ -1,4 +1,11 @@
-<html>
+
+
+
+<!DOCTYPE html> 
+<html lang='en-US' xml:lang='en-US'> 
+<head>
+
+<STYLE>
 <body style="background-color:#F1FFB8;">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,37 +21,37 @@
         <title>Painting</title>
     
     <body> 
-        <div class="image-grid">
-            
-            img:active {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(2); }
-
-            
-            <img width=350 src="IMG_0958.jpg">
-
-                
-            <img width=350 src="IMG_0248.jpg">
-            <img width=350 src="IMG_0181.jpg">
-                      <img width=350 src="IMG_0301.jpg">
-                      <img width=350 src="IMG_0297.jpg">
-           <img width=350 src="IMG_0143.jpg">
-               <img width=350 src="IMG_0160.jpg">
-            <img width=350 src="IMG_0153.jpg">
-           <img width=350 src="IMG_0125.jpg">
-              <img width=350 src="D50C2AEB-E1F2-4610-A103-39D321D5DB29.jpg">
-            <img width=350 src="CEF12980-6C24-43E7-AF29-E11D9E454808.jpg">
-           <img width=350 src="still life, oil on mdf, 8 x 12.jpg">
-             <img width=350 src="IMG_3628.jpg">
-           <img width=350 src="IMG_3723.jpg">
-                 <img width=350 src="img_1.jpg">
-        </div>
-        </body>
-          
 
 
-   </center>
-</body>
+.click-zoom input[type=checkbox] {
+  display: none
+}
+
+.click-zoom img {  
+  transition: transform 0.25s ease;
+  cursor: zoom-in
+}
+
+.click-zoom input[type=checkbox]:checked~img {
+  transform:  scale(2);
+  cursor: zoom-out
+}
+</STYLE> 
+</head><body>
+
+<div class='click-zoom'> 
+  <label>
+      <input type='checkbox' />
+          <img width=350 src="IMG_0958.jpg">
+  </label>
+</div> 
+
+<div class='click-zoom'> 
+  <label>
+      <input type='checkbox' />
+          <img width=350 src="IMG_0248.jpg">
+  </label>
+</div> 
+
+</body> 
 </html>
