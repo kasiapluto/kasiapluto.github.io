@@ -146,6 +146,22 @@ summary {
     margin: 0;
     object-fit: cover;
   }
+
+  /* stack lightbox vertically on mobile */
+  .lightbox-content {
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    max-height: 90vh;
+  }
+  .lightbox-img {
+    max-width: 85vw;
+    max-height: 60vh;
+  }
+  .lightbox-desc {
+    width: 85vw;
+    padding: 0.5rem 0;
+  }
 }
 
 /*lightbox*/
