@@ -1,40 +1,124 @@
-<html>
-    <head>
-        <link href="styles.css" rel="stylesheet">
-        <title>Kasia Pluto </title>
-     </head>
-
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="styles.css" rel="stylesheet">
+  <title>Kasia Pluto</title>
+</head>
 <body>
-
 <div class='container'>
-<div class='sidebar'>
-// information
-<details>
-<summary>about</summary>
-<p>Kasia Pluto (b. 1995) is an American artist and art researcher based in Pennsylvania; primarily working in drawing and painting. She graduated with her BFA in Painting & Drawing with a minor in Art History from Tyler School of Art, Temple University in 2017, and graduated with her MA in Design Research from BAU College of Arts and Design Barcelona in 2024.
-She finds artistic influence in nature, tech/tinker culture, and her daily experience.
-<br>Contact:</br>
-<a href="mailto:kasiapluto@gmail.com">mail</a>
-<a href="https://www.instagram.com/kasiaapj/">ig</a>
-</p>
-</details> 
+
+  <div class='sidebar'>
+    // information
+    <details>
+      <summary>about</summary>
+      <p>Kasia Pluto (b. 1995) is an American artist and art researcher based in Pennsylvania; primarily working in drawing and painting. She graduated with her BFA in Painting &amp; Drawing with a minor in Art History from Tyler School of Art, Temple University in 2017, and graduated with her MA in Design Research from BAU College of Arts and Design Barcelona in 2024.
+      She finds artistic influence in nature, tech/tinker culture, and her daily experience.
+      <br>Contact:
+      <a href="mailto:kasiapluto@gmail.com">mail</a>
+      <a href="https://www.instagram.com/kasiaapj/">ig</a>
+      </p>
+    </details>
+  </div>
+
+  <div class='main'>
+    // artwork archive
+
+    <details open>
+      <summary>2026</summary>
+      <p>hello! here are some of my paintings. descriptions to be updated soon~</p>
+
+      <div class="scatter-stage" id="scatterStage">
+        <div class="scatter-item" onclick="openLightbox(0)">
+          <img src="images/IMG_3410.jpeg" alt="Painting 1">
+        </div>
+        <div class="scatter-item" onclick="openLightbox(1)">
+          <img src="images/IMG_3544.jpeg" alt="Painting 2">
+        </div>
+        <div class="scatter-item" onclick="openLightbox(2)">
+          <img src="images/IMG_3543.jpeg" alt="Painting 3">
+        </div>
+        <div class="scatter-item" onclick="openLightbox(3)">
+          <img src="images/IMG_3600.jpeg" alt="Painting 4">
+        </div>
+        <div class="scatter-item" onclick="openLightbox(4)">
+          <img src="images/IMG_3604.jpeg" alt="Painting 5">
+        </div>
+      </div>
+
+    </details>
+  </div>
 
 </div>
-<div class='main'>
-// artwork archive
-    
-<details>
-<summary>2026</summary>
-<p>hello! here are some of my paintings. descriptions to be updated soon~</p>
-<img src="images/IMG_3410.jpeg" width="300">
-<img src="images/IMG_3544.jpeg" width="300">
-<img src="images/IMG_3543.jpeg" width="300">
-<img src="images/IMG_3600.jpeg" width="300">
-<img src="images/IMG_3604.jpeg" width="300">
-</details> 
+
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-bg" onclick="closeLightbox()"></div>
+  <button class="lightbox-close" onclick="closeLightbox()">&#x2715;</button>
+  <button class="lightbox-prev" onclick="shiftLightbox(-1)">&#8592;</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="">
+  <button class="lightbox-next" onclick="shiftLightbox(1)">&#8594;</button>
 </div>
 
-</div>
+<script>
+  const srcs = [
+    'images/IMG_3410.jpeg',
+    'images/IMG_3544.jpeg',
+    'images/IMG_3543.jpeg',
+    'images/IMG_3600.jpeg',
+    'images/IMG_3604.jpeg'
+  ];
+  let cur = 0;
+
+  const items = document.querySelectorAll('.scatter-item');
+  const stage = document.getElementById('scatterStage');
+
+  function rand(min, max) { return Math.random() * (max - min) + min; }
+
+  function scatter() {
+    const stageW = stage.offsetWidth;
+    const itemW = 200;
+    const itemH = 160;
+    const cols = 3;
+    const colW = stageW / cols;
+
+    items.forEach((item, i) => {
+      const col = i % cols;
+      const row = Math.floor(i / cols);
+      const baseX = col * colW;
+      const baseY = row * (itemH + 80);
+      const offsetX = rand(-colW * 0.28, colW * 0.28);
+      const offsetY = rand(-40, 40);
+      const left = Math.min(Math.max(baseX + offsetX, 0), stageW - itemW - 4);
+      item.style.left = left + 'px';
+      item.style.top = (baseY + offsetY + 20) + 'px';
+    });
+
+    const totalRows = Math.ceil(items.length / cols);
+    stage.style.height = (totalRows * (itemH + 80) + 100) + 'px';
+  }
+
+  window.addEventListener('load', scatter);
+  window.addEventListener('resize', scatter);
+
+  function openLightbox(i) {
+    cur = i;
+    document.getElementById('lightboxImg').src = srcs[i];
+    document.getElementById('lightbox').style.display = 'flex';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').style.display = 'none';
+  }
+  function shiftLightbox(dir) {
+    cur = (cur + dir + srcs.length) % srcs.length;
+    document.getElementById('lightboxImg').src = srcs[cur];
+  }
+  document.addEventListener('keydown', e => {
+    if (document.getElementById('lightbox').style.display !== 'flex') return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') shiftLightbox(-1);
+    if (e.key === 'ArrowRight') shiftLightbox(1);
+  });
+</script>
 </body>
 </html>
