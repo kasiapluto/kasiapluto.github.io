@@ -43,6 +43,11 @@ body {
   font-weight: normal;
   font-style: normal;
 }
+
+.section-title {
+  font-family: 'NotCourierSans', monospace;
+}
+
 /* layot*/
 .container {
   display: grid;
