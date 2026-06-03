@@ -52,15 +52,18 @@
     </details>
   </div>
 </div>
-
-<div class="lightbox" id="lightbox">
+  
+  <div class="lightbox" id="lightbox">
   <div class="lightbox-bg" onclick="closeLightbox()"></div>
   <button class="lightbox-close" onclick="closeLightbox()">&#x2715;</button>
   <button class="lightbox-prev" onclick="shiftLightbox(-1)">&#8592;</button>
-  <img class="lightbox-img" id="lightboxImg" src="" alt="">
+  <div class="lightbox-content">
+    <img class="lightbox-img" id="lightboxImg" src="" alt="">
+    <div class="lightbox-desc" id="lightboxDesc"></div>
+  </div>
   <button class="lightbox-next" onclick="shiftLightbox(1)">&#8594;</button>
 </div>
-
+  
 <script>
   const srcs = [
     'images/IMG_3410.jpeg',
@@ -144,18 +147,21 @@
   window.addEventListener('load', scatter);
   window.addEventListener('resize', scatter);
 
-  function openLightbox(i) {
-    cur = i;
-    document.getElementById('lightboxImg').src = srcs[i];
-    document.getElementById('lightbox').style.display = 'flex';
-  }
+ function openLightbox(i) {
+  cur = i;
+  document.getElementById('lightboxImg').src = srcs[i];
+  document.getElementById('lightboxDesc').innerHTML = descs[i];
+  document.getElementById('lightbox').style.display = 'flex';
+}
   function closeLightbox() {
     document.getElementById('lightbox').style.display = 'none';
   }
-  function shiftLightbox(dir) {
-    cur = (cur + dir + srcs.length) % srcs.length;
-    document.getElementById('lightboxImg').src = srcs[cur];
-  }
+  
+function shiftLightbox(dir) {
+  cur = (cur + dir + srcs.length) % srcs.length;
+  document.getElementById('lightboxImg').src = srcs[cur];
+  document.getElementById('lightboxDesc').innerHTML = descs[cur];
+}
 
   document.addEventListener('keydown', e => {
     if (document.getElementById('lightbox').style.display !== 'flex') return;
@@ -173,6 +179,15 @@
     cursor.style.left = e.clientX + 'px';
     cursor.style.top  = e.clientY + 'px';
   });
+
+  const descs = [
+  'Title, 2026. Oil on canvas, 12×16in. Description here.',
+  'Title, 2026. Oil on canvas, 12×16in. Description here.',
+  'Title, 2026. Oil on canvas, 12×16in. Description here.',
+  'Title, 2026. Oil on canvas, 12×16in. Description here.',
+  'Title, 2026. Oil on canvas, 12×16in. Description here.',
+];
+  
 </script>
 </body>
 </html>
