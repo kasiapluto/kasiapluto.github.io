@@ -11,20 +11,6 @@ body {
 }
 
 @font-face {
-  font-family: 'ArkdesHershey17';
-  src: url('fonts/Arkdes-Hershey-17.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'ArkdesHershey26';
-  src: url('fonts/Arkdes-Hershey-26.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
   font-family: 'ArkdesHershey40';
   src: url('fonts/Arkdes-Hershey-40.otf') format('opentype');
   font-weight: normal;
@@ -32,10 +18,10 @@ body {
 }
 
 .section-title {
-  font-family: 'ArkdesHershey26', monospace;
+  font-family: 'ArkdesHershey40', monospace;
   font-weight: normal;
   display: block;
-  font-size: 24px;
+  font-size: 36px;
 }
 
 /* layot*/
