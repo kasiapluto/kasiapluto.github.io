@@ -19,7 +19,7 @@ body {
 }
 @font-face {
   font-family: 'SpaceGrotesk';
-  src: url('fonts/SpaceGrotesk-SemiBold.otf') format('opentype');
+  src: url('fonts/SpaceGrotesk-Medium.otf') format('opentype');
   font-weight: 600;
   font-style: normal;
 }
