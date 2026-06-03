@@ -22,7 +22,7 @@ body {
   padding: 1rem;
   background-color: #faf6ef;
 }
-/* ── Scatter layout (desktop) ── */
+/*scatter*/
 .scatter-stage {
   position: relative;
   width: 100%;
@@ -47,7 +47,7 @@ body {
   margin-left: -20%;
   margin-top: -20%;
 }
-/* ── Lightbox ── */
+/*lightbox*/
 .lightbox {
   display: none;
   position: fixed;
@@ -86,7 +86,7 @@ body {
 html {
   scroll-behavior: smooth;
 }
-/* ── Details / Summary styling ── */
+/*details plus summary style*/
 details {
   border-bottom: 1px solid rgb(46, 75, 52);
   padding-bottom: 0.5rem;
@@ -96,7 +96,7 @@ summary {
   cursor: pointer;
   user-select: none;
 }
-/* ── Custom cursor (desktop only) ── */
+/*custom cursor-desktop*/
 @media (pointer: fine) {
   * { cursor: none; }
   .cursor {
@@ -113,7 +113,7 @@ summary {
 @media (pointer: coarse) {
   .cursor { display: none; }
 }
-/* ── Mobile ── */
+/*mobilee*/
 @media (max-width: 600px) {
   body {
     font-size: 20px;
