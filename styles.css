@@ -5,7 +5,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'SpaceGrotesk', sans-serif;
+  font-family: 'Standard', sans-serif;
   font-size: 36px;
   background-color: #e0f27a;
   color: rgb(46, 75, 52);
@@ -17,6 +17,34 @@ body {
   src: url('fonts/SpaceGrotesk-Medium.otf') format('opentype');
   font-weight: 600;
   font-style: normal;
+}
+
+@font-face {
+  font-family: 'Standard';
+  src: url('fonts/standard-book.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Standard';
+  src: url('fonts/standard-book-italic.otf') format('opentype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Standard';
+  src: url('fonts/standard-bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Standard';
+  src: url('fonts/standard-bold-italic.otf') format('opentype');
+  font-weight: bold;
+  font-style: italic;
 }
 
 /* layot*/
