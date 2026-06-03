@@ -1,6 +1,7 @@
 *, *::before, *::after {
   box-sizing: border-box;
 }
+
 body {
   margin: 0;
   padding: 0;
@@ -8,7 +9,41 @@ body {
   background-color: #e0f27a;
   color: rgb(46, 75, 52);
 }
-/* ── Layout ── */
+@font-face {
+  font-family: 'NotCourierSans';
+  src: url('fonts/NotCourierSans.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NotCourierSans';
+  src: url('fonts/NotCourierSans-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ArkdesHershey17';
+  src: url('fonts/Arkdes-Hershey-17.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ArkdesHershey26';
+  src: url('fonts/Arkdes-Hershey-26.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ArkdesHershey40';
+  src: url('fonts/Arkdes-Hershey-40.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+/* layot*/
 .container {
   display: grid;
   grid-template-columns: 300px 1fr;
