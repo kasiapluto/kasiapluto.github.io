@@ -1,0 +1,26 @@
+body {
+    font-size: 24px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(46, 75, 52);
+}
+
+.container {
+  width: 100%;
+  display: grid;
+  grid-template-areas: "sidebar main";
+  grid-template-columns: 200px auto;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  height: 100vw;
+  background-color: rgb(255, 255, 255);
+}
+
+.main {
+  grid-area: main;
+  height: 100vw;
+  background-color: rgb(255, 255, 255);
+}
+
+ 
