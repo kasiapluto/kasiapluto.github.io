@@ -23,7 +23,6 @@ body {
 
 .main {
    padding: 1rem;
-  background-color: white;
 }
 
 /* scatter layout */
@@ -32,6 +31,8 @@ body {
   width: 100%;
   min-height: 400px;
   margin-top: 1rem;
+  background-color: white;
+  padding: 1rem;
 }
 
 .scatter-item {
