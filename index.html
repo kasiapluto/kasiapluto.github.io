@@ -108,7 +108,7 @@
     if (e.key === 'ArrowLeft') shiftLightbox(-1);
     if (e.key === 'ArrowRight') shiftLightbox(1);
   });
-  document.querySelector('details').addEventListener('toggle', function() {
+  document.querySelector('.main details').addEventListener('toggle', function() {
     if (this.open) scatter();
   });
   const cursor = document.getElementById('cursor');
