@@ -91,3 +91,7 @@ body {
 .lightbox-close { top: 1rem; right: 1rem; }
 .lightbox-prev  { left: 1rem; top: 50%; transform: translateY(-50%); }
 .lightbox-next  { right: 1rem; top: 50%; transform: translateY(-50%); }
+
+html {
+  scroll-behavior: smooth;
+}
