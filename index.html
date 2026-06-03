@@ -78,24 +78,11 @@
   function scatter() {
     const stageW = stage.offsetWidth;
     const itemW = 200;
-    const itemH = 160;
-    const cols = 3;
-    const colW = stageW / cols;
-
-    items.forEach((item, i) => {
-      const col = i % cols;
-      const row = Math.floor(i / cols);
-      const baseX = col * colW;
-      const baseY = row * (itemH + 80);
-      const offsetX = rand(-colW * 0.28, colW * 0.28);
-      const offsetY = rand(-40, 40);
-      const left = Math.min(Math.max(baseX + offsetX, 0), stageW - itemW - 4);
-      item.style.left = left + 'px';
-      item.style.top = (baseY + offsetY + 20) + 'px';
+    items.forEach((item) => {
+      item.style.left = rand(0, stageW - itemW) + 'px';
+      item.style.top = rand(0, 400) + 'px';
     });
-
-    const totalRows = Math.ceil(items.length / cols);
-    stage.style.height = (totalRows * (itemH + 80) + 100) + 'px';
+    stage.style.height = '560px';
   }
 
   window.addEventListener('load', scatter);
@@ -122,3 +109,4 @@
 </script>
 </body>
 </html>
+
