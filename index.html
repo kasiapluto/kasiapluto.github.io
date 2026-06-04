@@ -34,21 +34,39 @@ My favorite mediums are oil paint, charcoal, ink, and coding. My fave color is p
    // artwork archive
     <details>
       <summary>2026</summary>
+
+      <div class="filter-bar">
+        <div class="filter-select-wrapper">
+          <select id="categoryFilter" onchange="filterGallery()">
+            <option value="all">all</option>
+            <option value="painting">painting</option>
+            <option value="drawing">drawing</option>
+            <option value="other">other</option>
+          </select>
+          <span class="filter-arrow">▾</span>
+        </div>
+      </div>
+
       <div class="scatter-stage" id="scatterStage">
-        <div class="scatter-item" data-index="0">
+        <div class="scatter-item" data-index="0" data-category="painting">
           <img src="images/IMG_3410.jpeg" alt="Painting 1">
+
         </div>
-        <div class="scatter-item" data-index="1">
+        <div class="scatter-item" data-index="1" data-category="painting">
           <img src="images/IMG_3544.jpeg" alt="Painting 2">
+
         </div>
-        <div class="scatter-item" data-index="2">
+        <div class="scatter-item" data-index="2" data-category="painting">
           <img src="images/IMG_3543.jpeg" alt="Painting 3">
+
         </div>
-        <div class="scatter-item" data-index="3">
+        <div class="scatter-item" data-index="3" data-category="painting">
           <img src="images/IMG_3600.jpeg" alt="Painting 4">
+
         </div>
-        <div class="scatter-item" data-index="4">
+        <div class="scatter-item" data-index="4" data-category="painting">
           <img src="images/IMG_3604.jpeg" alt="Painting 5">
+
         </div>
       </div>
     </details>
@@ -83,8 +101,18 @@ My favorite mediums are oil paint, charcoal, ink, and coding. My fave color is p
     'asdf in my room (key mashing), 2026. Oil on paper, 6.25×4.25in. ',
   ];
 
+  // ── Filter ──
+  function filterGallery() {
+    const val = document.getElementById('categoryFilter').value;
+    const allItems = document.querySelectorAll('.scatter-item');
+    allItems.forEach(item => {
+      const cat = item.dataset.category;
+      item.style.display = (val === 'all' || cat === val) ? '' : 'none';
+    });
+    scatter();
+  }
+
   let cur = 0;
-  const items = document.querySelectorAll('.scatter-item');
   const stage = document.getElementById('scatterStage');
 
   function rand(min, max) { return Math.random() * (max - min) + min; }
@@ -92,14 +120,16 @@ My favorite mediums are oil paint, charcoal, ink, and coding. My fave color is p
   function scatter() {
     const stageW = stage.offsetWidth;
     const itemW = 200;
-    items.forEach((item) => {
-      item.style.left = rand(0, stageW - itemW) + 'px';
+    const visibleItems = document.querySelectorAll('.scatter-item:not([style*="display: none"])');
+    visibleItems.forEach((item) => {
+      item.style.left = rand(0, Math.max(0, stageW - itemW - 32)) + 'px';
       item.style.top  = rand(0, 400) + 'px';
     });
     stage.style.height = '560px';
   }
 
   // ── Dragging ──
+  const items = document.querySelectorAll('.scatter-item');
   items.forEach((item) => {
     let dragging = false;
     let didDrag = false;
@@ -131,24 +161,14 @@ My favorite mediums are oil paint, charcoal, ink, and coding. My fave color is p
       item.style.zIndex = '';
     }
 
-    // Mouse
-    item.addEventListener('mousedown', (e) => {
-      dragStart(e.clientX, e.clientY);
-      e.preventDefault();
-    });
+    item.addEventListener('mousedown', (e) => { dragStart(e.clientX, e.clientY); e.preventDefault(); });
     document.addEventListener('mousemove', (e) => dragMove(e.clientX, e.clientY));
     document.addEventListener('mouseup', () => dragEnd());
 
-    // Touch
-    item.addEventListener('touchstart', (e) => {
-      dragStart(e.touches[0].clientX, e.touches[0].clientY);
-    }, { passive: true });
-    document.addEventListener('touchmove', (e) => {
-      dragMove(e.touches[0].clientX, e.touches[0].clientY);
-    }, { passive: true });
+    item.addEventListener('touchstart', (e) => { dragStart(e.touches[0].clientX, e.touches[0].clientY); }, { passive: true });
+    document.addEventListener('touchmove', (e) => { dragMove(e.touches[0].clientX, e.touches[0].clientY); }, { passive: true });
     document.addEventListener('touchend', () => dragEnd());
 
-    // Click — only open lightbox if not dragged
     item.addEventListener('click', () => {
       if (didDrag) return;
       openLightbox(parseInt(item.dataset.index));
@@ -170,7 +190,14 @@ My favorite mediums are oil paint, charcoal, ink, and coding. My fave color is p
   }
 
   function shiftLightbox(dir) {
-    cur = (cur + dir + srcs.length) % srcs.length;
+    // only cycle through visible items
+    const visible = [...document.querySelectorAll('.scatter-item')]
+      .filter(el => el.style.display !== 'none')
+      .map(el => parseInt(el.dataset.index));
+    if (visible.length === 0) return;
+    const pos = visible.indexOf(cur);
+    const next = (pos + dir + visible.length) % visible.length;
+    cur = visible[next];
     document.getElementById('lightboxImg').src = srcs[cur];
     document.getElementById('lightboxDesc').innerHTML = descs[cur];
   }
