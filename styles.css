@@ -249,3 +249,45 @@ summary {
   align-self: flex-start;
   font-family: 'Standard', sans-serif;
 }
+
+/*drop down system*/
+.filter-bar {
+  display: flex;
+  align-items: center;
+  margin: 0.5rem 0 0.25rem 0;
+}
+
+.filter-select-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.filter-select-wrapper select {
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgb(46, 75, 52);
+  font-family: 'Standard', sans-serif;
+  font-size: 0.85em;
+  color: rgb(46, 75, 52);
+  padding: 0 1.4em 0 0;
+  cursor: pointer;
+  outline: none;
+}
+
+.filter-arrow {
+  position: absolute;
+  right: 0;
+  pointer-events: none;
+  font-size: 0.75em;
+  color: rgb(46, 75, 52);
+  line-height: 1;
+}
+
+@media (max-width: 600px) {
+  .filter-bar {
+    margin-bottom: 0.5rem;
+  }
+}
