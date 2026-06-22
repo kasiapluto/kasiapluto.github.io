@@ -172,6 +172,7 @@ summary {
   z-index: 1000;
   align-items: center;
   justify-content: center;
+  background: #000;
 }
 .lightbox-bg {
   position: absolute;
@@ -250,7 +251,6 @@ summary {
   font-family: 'Standard', sans-serif;
 }
 
-/*drop down system*/
 .filter-bar {
   display: flex;
   align-items: center;
@@ -291,3 +291,4 @@ summary {
     margin-bottom: 0.5rem;
   }
 }
+
