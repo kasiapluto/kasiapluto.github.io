@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="styles.css" rel="stylesheet">
+  <title>Kasia Pluto — 2026</title>
+</head>
+<body>
+  <div class="cursor" id="cursor"></div>
+
+<div class='container'>
+  <div class='sidebar'>
+    <div class="site-title"><a href="index.html">kasia pluto</a></div>
+    <nav class="site-nav">
+      <span class="nav-label">artworks</span>
+      <div class="nav-category">
+        <span class="nav-subtitle">paintings</span>
+        <a class="nav-year active" href="painting-2026.html">2026</a>
+        <a class="nav-year" href="painting-2025.html">2025</a>
+      </div>
+      <div class="nav-category">
+        <span class="nav-subtitle">drawings</span>
+        <a class="nav-year" href="drawing-2026.html">2026</a>
+        <a class="nav-year" href="drawing-2025.html">2025</a>
+      </div>
+      <div class="nav-divider"></div>
+      <p class="nav-link"><a href="about.html">about</a></p>
+      <details>
+        <summary>contact</summary>
+        <p><a href="mailto:kasiapluto@proton.me">mail</a></p>
+        <p><a href="https://www.instagram.com/kasiaapj/">ig</a></p>
+      </details>
+    </nav>
+  </div>
+  <div class='main'>
+    
+
+    <div class="gallery-grid" id="galleryGrid">
+      <div class="gallery-item" data-index="0">
+        <img src="images/IMG_4717.PNG" alt="">
+      </div>
+      <div class="gallery-item" data-index="1">
+        <img src="images/IMG_4710.PNG" alt="">
+      </div>
+      <div class="gallery-item" data-index="2">
+        <img src="images/IMG_4711.PNG" alt="">
+      </div>
+      <div class="gallery-item" data-index="3">
+        <img src="images/IMG_4718.PNG" alt="">
+      </div>
+      <div class="gallery-item" data-index="4">
+        <img src="images/IMG_4720.PNG" alt="">
+      </div>
+      <div class="gallery-item" data-index="5">
+        <img src="images/IMG_4712.PNG" alt="">
+      </div>
+      <div class="gallery-item" data-index="6">
+        <img src="images/IMG_4723.PNG" alt="">
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-bg" onclick="closeLightbox()"></div>
+  <button class="lightbox-close" onclick="closeLightbox()">&#x2715;</button>
+  <button class="lightbox-prev" onclick="shiftLightbox(-1)">&#8592;</button>
+  <div class="lightbox-content">
+    <img class="lightbox-img" id="lightboxImg" src="" alt="">
+    <div class="lightbox-desc" id="lightboxDesc"></div>
+  </div>
+  <button class="lightbox-next" onclick="shiftLightbox(1)">&#8594;</button>
+</div>
+
+<script>
+  let cur = 0;
+  const srcs = [
+    'images/IMG_4717.PNG',
+    'images/IMG_4710.PNG',
+    'images/IMG_4711.PNG',
+    'images/IMG_4718.PNG',
+    'images/IMG_4720.PNG',
+    'images/IMG_4712.PNG',
+    'images/IMG_4723.PNG'
+  ];
+  const descs = [
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    ''
+  ];
+
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('click', () => openLightbox(parseInt(item.dataset.index)));
+  });
+
+  function openLightbox(i) {
+    cur = i;
+    document.getElementById('lightboxImg').src = srcs[i];
+    document.getElementById('lightboxDesc').innerHTML = descs[i];
+    document.getElementById('lightbox').style.display = 'flex';
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').style.display = 'none';
+  }
+
+  function shiftLightbox(dir) {
+    if (srcs.length === 0) return;
+    cur = (cur + dir + srcs.length) % srcs.length;
+    document.getElementById('lightboxImg').src = srcs[cur];
+    document.getElementById('lightboxDesc').innerHTML = descs[cur];
+  }
+
+  document.addEventListener('keydown', e => {
+    if (document.getElementById('lightbox').style.display !== 'flex') return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') shiftLightbox(-1);
+    if (e.key === 'ArrowRight') shiftLightbox(1);
+  });
+
+  const cursor = document.getElementById('cursor');
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top  = e.clientY + 'px';
+  });
+</script>
+</body>
+</html>
