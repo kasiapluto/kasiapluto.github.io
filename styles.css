@@ -6,7 +6,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Standard', sans-serif;
-  font-size: 36px;
+  font-size: 18px;
   background-color: #ffffff;
   color: #e0f27a;
 }
@@ -171,7 +171,7 @@ summary {
 /* mobile */
 @media (max-width: 600px) {
   body {
-    font-size: 20px;
+    font-size: 16px;
   }
   .container {
     grid-template-columns: 1fr;
