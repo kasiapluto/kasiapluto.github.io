@@ -133,6 +133,7 @@ body {
 }
 .gallery-item {
   cursor: pointer;
+  max-width: 400px;
 }
 .gallery-item img {
   display: block;
