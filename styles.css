@@ -77,7 +77,6 @@ body {
 }
 .site-title a:hover {
   text-decoration: underline;
-  color: #e0f27a;
 }
 .site-nav {
   display: flex;
@@ -105,9 +104,6 @@ body {
 .nav-year.active {
   text-decoration: underline;
 }
-.nav-year:hover {
-  color: #e0f27a;
-}
 .nav-link {
   border-bottom: 1px solid rgb(46, 75, 52);
   padding-bottom: 0.5rem;
@@ -122,9 +118,6 @@ body {
 .nav-link a:hover,
 .nav-link.active a {
   text-decoration: underline;
-}
-.nav-link a:hover {
-  color: #e0f27a;
 }
 .nav-divider {
   border-bottom: 1px solid rgb(46, 75, 52);
@@ -164,7 +157,6 @@ details a {
   text-decoration: none;
 }
 details a:hover {
-  color: #e0f27a;
   text-decoration: underline;
 }
 /* custom cursor - desktop */
@@ -174,7 +166,7 @@ details a:hover {
     position: fixed;
     width: 12px;
     height: 12px;
-    background: rgb(224, 242, 122);
+    background: #000;
     border-radius: 50%;
     pointer-events: none;
     transform: translate(-50%, -50%);
